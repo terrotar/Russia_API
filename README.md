@@ -25,7 +25,4 @@ First, you must install all the dependencies found inside Pipfile(similar to req
 Then you just have to open a terminal inside the directory and type:
     - flask run
 
-
-
-
-Still developing, sorry =s
+    Still developing, sorry =s
