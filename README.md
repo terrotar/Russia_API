@@ -23,6 +23,6 @@ FAIL
 First, you must install all the dependencies found inside Pipfile(similar to requirements.txt).
 
 Then you just have to open a terminal inside the directory and type:
-    flask run
+    - flask run
 
     Still developing, sorry =s
