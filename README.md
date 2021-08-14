@@ -13,6 +13,9 @@ OK
 - Instruction inside README.md about how to run the app
 ...
 
+- Add the result to the .log file
+FAIL
+
 - Use pytest(ex, invalid input)
 FAIL
 
