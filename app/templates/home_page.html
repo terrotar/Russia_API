@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+    <title>Home Page</title>
+{% endblock %}
+
+{% block body %}
+    <br>
+    <h1>Welcome to the Home Page!</h1>
+    <hr>
+
+
+    <br>
+    <h4>Type an address to calculate the distance between <strong><u>Moscow Ring Road</u></strong> and the specified address.</h4>
+    <br>
+    <h5>If the address is inside <strong><u>MKAD</u></strong> it won't be calculated.</h5>
+    <br>
+
+    <form action="#">
+
+        <div class="form-group col-3">
+          <label for="address" class="form-label"><strong><u>Adress:</u></strong></label>
+          <br>
+          <input type="address" name="address" class="form-control" id="address">
+          <br>
+          <button type="submit" class="btn btn-outline-dark btn-md bg-danger"><strong>Calculate !</strong></button>
+        </div>
+
+
+
+
+        <br>
+        <br>
+        <h1>Results</h1>
+        <hr>
+{% endblock %}

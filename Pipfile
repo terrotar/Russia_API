@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 flask = "*"
 python-dotenv = "*"
+requests = "*"
+haversine = "*"
 
 [dev-packages]
 

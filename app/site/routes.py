@@ -1,9 +1,9 @@
-from flask import Blueprint
-
+from flask import Blueprint, render_template, request
+import requests
 
 site = Blueprint('site', __name__)
 
 
-@site.route('/')
+@site.route('/', methods=['GET'])
 def index():
-    return '<h1>Welcome to the home page!</h1>'
+    return render_template('home_page.html')
