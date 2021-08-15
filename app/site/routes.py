@@ -13,20 +13,22 @@ def index():
     return render_template('home_page.html')
 
 
-@site.route("/distance/<float:lng>/<float:lat>", methods=["GET", "POST"])
-def distance(lng, lat):
+@site.route("/distance", methods=["POST"])
+def distance():
     if(request.method == 'POST'):
+        lng = request.form["longitude"]
+        lat = request.form["latitude"]
         moscow = (37.622513, 55.75322)
-        address = (lng, lat)
+        address = (float(lng), float(lat))
         dist = round(hs.haversine(moscow, address), 1)
         if(dist <= 12.9):
             return render_template('home_page.html',
                                    value_error=True)
         else:
-            dist = round(dist - 12.9, 1)
+            km = round(dist - 12.9, 1)
             miles = round(hs.haversine(
                 moscow, address, unit=Unit.MILES), 1) - 8
             return render_template('home_page.html',
                                    address=address,
-                                   kilometers=dist,
+                                   kilometers=km,
                                    miles=miles)

@@ -19,17 +19,12 @@
     <br>
 
 
-    {% if value_error %}
-    <br>
-    <h4><strong>The coordinate is inside the MKAD.</strong></h4>
-    <br>
-    {% endif %}
 
     <div class="container">
 
       <div class="row d-inline-block">
 
-        <form action="#", method="POST">
+        <form action="{{ url_for('site.distance') }}", method="POST">
   
           <div class="form-group col-6 float-left">
             <p><strong><u>Calculate distance:</u></strong></p>
@@ -37,16 +32,17 @@
               <strong><u>NOT INSIDE MKAD</u></strong>.</p>
                <p>Example:
                <br>
-               <strong><u>40.406635,56.129057</u></strong></p>
+               <strong><u>Longitude:</u></strong> 40.406635</p>
+               <strong><u>Latitude:</u></strong> 56.129057</p>
 
                <br>
             
-            <label for="lng" class="form-label"><strong><u>Longitude:</u></strong></label>
-            <input type="text" name="lng" class="form-control" id="lng">
+            <label for="longitude" class="form-label"><strong><u>Longitude:</u></strong></label>
+            <input type="float" name="longitude" class="form-control" id="longitude">
             <br>
 
-            <label for="lat" class="form-label"><strong><u>Latitude:</u></strong></label>
-            <input type="text" name="lat" class="form-control" id="lat">
+            <label for="latitude" class="form-label"><strong><u>Latitude:</u></strong></label>
+            <input type="float" name="latitude" class="form-control" id="latitude">
 
 
             <button type="submit" class="btn btn-outline-light btn-md bg-info"><strong>Calculate</strong></button>
@@ -81,9 +77,18 @@
         <br>
         <h1>Results</h1>
         <hr>
+
+
+        {% if value_error %}
+        <br>
+        <h4><strong>The coordinate is inside the MKAD.</strong></h4>
+        <br>
+        {% endif %}
+
+
         {% if kilometers and miles %}
-          <p><strong>Address:</strong> {{ address }}</p>
-          <p><strong>Distance in kilometers:</strong> {{ km }}</p>
+          <p><strong>Address Coordinate:</strong> {{ address }}</p>
+          <p><strong>Distance in kilometers:</strong> {{ kilometers }}</p>
           <p><strong>Distance in miles:</strong> {{ miles }}</p>
         {% endif %}
 
