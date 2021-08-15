@@ -44,6 +44,12 @@ def distance():
 # in a more visual display as alternative of the route API. Does the same thing
 # of the Blueprint API /api/getdata but a little more friendly to understand
 # how does it work.
+
+# Here it's important to notice that was divided the search addres in 2 parts:
+# One searching by the city or street name
+# Another searching by the coordinates longitude and latitude
+
+# Route that search by city or steet
 @site.route("/getdata/city", methods=["POST"])
 def getdata_city():
     if(request.method == 'POST'):
