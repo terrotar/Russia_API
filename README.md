@@ -31,12 +31,12 @@ Then you just have to open a terminal inside the directory and type:
     - flask run
 
 After that, connect to your localhost in your web browser. There you will have the home page with some
-instructions to use the API and a more visual option to calculate the distance too.
+instructions about how to use the API and a more visual option to calculate the distance with buttons too(STILL IN DEVELOPMENT).
 
 
 *** About the project ***
 
-If the specified address is located inside the MKAD, the distance does not need to be calculated.To calculate the distance
-was used the library haversine found in Pipfile. Basically, haversine will calculate distance between 2 points with the
-parameter you desire, such as miles, kms, meters. The result was 12.9 kms rounded, so from Moscow until 12.9 kms(MKAD) the program
-won't calculate in due to consider inside MKAD.
+If the specified address is located inside the MKAD, the distance won't be calculated.To calculate that distance was used the
+library haversine found in Pipfile. Basically, haversine will calculate the distance between 2 coordinates points with the parameter
+you desire, such as miles, kms, meters. The result was 12.9 kms rounded, so from Moscow until 12.9 kms(MKAD) the program won't calculate in
+due to consider inside MKAD.
