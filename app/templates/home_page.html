@@ -17,21 +17,63 @@
     <h5>If the address is inside <strong><u>MKAD</u></strong> it won't be calculated.</h5>
     <br>
 
-    <form action="#">
+
+
+    <form action="#", method="GET">
+
+      <div class="form-group col-3">
+        <label for="address" class="form-label"><strong><u>Calculate</u> <u>Distance</u>:</strong></label>
+        <br>
+        <input type="text" name="address" class="form-control" id="address">
+        
+        <button type="submit" class="btn btn-outline-light btn-md bg-info"><strong>Calculate</strong></button>
+      </div>
+
+
+      <br>
+
+    <form action="#", method="GET">
 
         <div class="form-group col-3">
-          <label for="address" class="form-label"><strong><u>Adress:</u></strong></label>
+          <label for="address" class="form-label"><strong><u>Search</u> <u>Adress</u>:</strong></label>
           <br>
-          <input type="address" name="address" class="form-control" id="address">
-          <br>
-          <button type="submit" class="btn btn-outline-dark btn-md bg-danger"><strong>Calculate !</strong></button>
+          <input type="text" name="address" class="form-control" id="address">
+          
+          <button type="submit" class="btn btn-outline-light btn-md bg-danger"><strong>Search</strong></button>
         </div>
 
 
-
-
         <br>
         <br>
-        <h1>Results</h1>
+        <h1>How to use the API</h1>
         <hr>
+
+        <h4>There are <strong>two routes</strong> and <strong>two buttons</strong> you can use:</h4>
+        <br>
+        <ul>
+          <li>
+            <h5><strong>/api/distance/lng/lat</strong></h5>
+            <button type="submit" class="btn btn-outline-light btn-sm bg-info" disabled><strong>Blue button</strong></button>
+            <br>
+            <br>
+            <p>Calculate the distance in kilometers and miles from the coordinate, first longitude then latitude, for example:</p>
+       
+            <a href="http://127.0.0.1:5000/api/distance/40.406635/56.129057">http://127.0.0.1:5000/api/distance/40.406635/56.129057</a></p>
+            
+          </li>
+          <br>
+          <br>
+          <li>
+            <h5><strong>/api/getdata/city_name_or_coordinate</strong></h5>
+            <button type="submit" class="btn btn-outline-light btn-sm bg-danger" disabled><strong>Red button</strong></button>
+            <br>
+            <br>
+            <p>Give some data and coordinates in case you don't know to calculate via API.</p>
+            <p>If insert coordinate put it like the examples above:
+              <br>
+              <br>
+              <a href="http://127.0.0.1:5000/api/getdata/40.406635,56.129057">http://127.0.0.1:5000/api/getdata/40.406635,56.129057</a></p>
+              <a href="http://127.0.0.1:5000/api/getdata/vladimir">http://127.0.0.1:5000/api/getdata/vladimir</a></p>
+          </li>
+        </ul>
 {% endblock %}

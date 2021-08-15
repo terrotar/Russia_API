@@ -30,7 +30,8 @@ First, you must install all the dependencies found inside Pipfile(similar to req
 Then you just have to open a terminal inside the directory and type:
     - flask run
 
-    Still developing, sorry =s
+After that, connect to your localhost in your web browser. There you will have the home page with some
+instructions to use the API and a more visual option to calculate the distance too.
 
 
 *** About the project ***

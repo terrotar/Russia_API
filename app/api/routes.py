@@ -21,11 +21,13 @@ def distance(lng, lat):
         if(dist <= 12.9):
             return {'ValueError': 'Distance inside MKAD.'}
         else:
-            miles = round(hs.haversine(moscow, address, unit=Unit.MILES), 1)
+            dist = round(dist - 12.9, 1)
+            miles = round(hs.haversine(
+                moscow, address, unit=Unit.MILES), 1) - 8
             return {'distance': {
-                                'Kilometers': dist,
-                                'Miles': miles}
-                    }
+                'Kilometers': dist,
+                'Miles': miles}
+            }
 
 
 # Route to get data of a certain place. It can be a name(Moscow) or
