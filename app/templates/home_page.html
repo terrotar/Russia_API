@@ -2,47 +2,69 @@
 
 
 {% block head %}
-    <title>Home Page</title>
+    <title>MKAD API - Home Page</title>
 {% endblock %}
 
 {% block body %}
     <br>
-    <h1>Welcome to the Home Page!</h1>
+    <h1>Welcome to MKAD API</h1>
     <hr>
 
 
     <br>
     <h4>Type an address to calculate the distance between <strong><u>Moscow Ring Road</u></strong> and the specified address.</h4>
     <br>
-    <h5>If the address is inside <strong><u>MKAD</u></strong> it won't be calculated.</h5>
+    <h4>If the address is inside <strong><u>MKAD</u></strong> it won't be calculated.</h4>
+    <br>
     <br>
 
 
+    <div class="container">
 
-    <form action="#", method="GET">
+      <div class="row d-inline-block">
 
-      <div class="form-group col-3">
-        <label for="address" class="form-label"><strong><u>Calculate</u> <u>Distance</u>:</strong></label>
-        <br>
-        <input type="text" name="address" class="form-control" id="address">
-        
-        <button type="submit" class="btn btn-outline-light btn-md bg-info"><strong>Calculate</strong></button>
-      </div>
-
-
-      <br>
-
-    <form action="#", method="GET">
-
-        <div class="form-group col-3">
-          <label for="address" class="form-label"><strong><u>Search</u> <u>Adress</u>:</strong></label>
-          <br>
-          <input type="text" name="address" class="form-control" id="address">
+        <form action="#", method="GET">
+  
+          <div class="form-group col-6 float-left">
+            <label for="address" class="form-label"><strong><u>Calculate</u> <u>Distance</u>:</strong></label>
+            <br>
+            <p><strong><u>Obs</u>: </strong>To do so, enter a <strong>valid coordinate(longitude, latitude)</strong> that is
+              <strong><u>NOT INSIDE MKAD</u></strong>.</p>
+               <p>Example:
+               <br>
+               <strong><u>40.406635,56.129057</u></strong></p>
+            
+            <input type="text" name="address" class="form-control" id="address">
+            
+            <button type="submit" class="btn btn-outline-light btn-md bg-info"><strong>Calculate</strong></button>
+          </div><!-- form-group -->
+        </form><!-- form - calculate distance -->
+    
+    
+        <form action="#", method="GET">
+    
+            <div class="form-group col-6 float-right">
+              <label for="address" class="form-label"><strong><u>Search</u> <u>Adress</u>:</strong></label>
+              <br>
+              <p><strong><u>Obs</u>: </strong>To do so, enter a <strong>valid coordinate(longitude, latitude)</strong>
+                or the <strong>name of street, city.</strong></p>
+                <p>Examples:
+                  <br>
+                <strong><u>40.406635,56.129057</u></strong> or <strong><u>vladimir</u></strong></p>
+                
+              <input type="text" name="address" class="form-control" id="address">
+              
+              <button type="submit" class="btn btn-outline-light btn-md bg-danger"><strong>Search</strong></button>
+            </div><!-- form-group -->
+          </form><!-- form - search address -->
           
-          <button type="submit" class="btn btn-outline-light btn-md bg-danger"><strong>Search</strong></button>
-        </div>
+      </div><!-- class row -->
+
+    </div><!-- container -->
+    
 
 
+        <br>
         <br>
         <br>
         <h1>How to use the API</h1>
@@ -52,7 +74,7 @@
         <br>
         <ul>
           <li>
-            <h5><strong>/api/distance/lng/lat</strong></h5>
+            <h4><strong>/api/distance/lng/lat</strong></h4>
             <button type="submit" class="btn btn-outline-light btn-sm bg-info" disabled><strong>Blue button</strong></button>
             <br>
             <br>
@@ -64,12 +86,12 @@
           <br>
           <br>
           <li>
-            <h5><strong>/api/getdata/city_name_or_coordinate</strong></h5>
+            <h4><strong>/api/getdata/city_name_or_coordinate</strong></h4>
             <button type="submit" class="btn btn-outline-light btn-sm bg-danger" disabled><strong>Red button</strong></button>
             <br>
             <br>
             <p>Give some data and coordinates in case you don't know to calculate via API.</p>
-            <p>If insert coordinate put it like the examples above:
+            <p>Insert coordinates and names as the examples above:
               <br>
               <br>
               <a href="http://127.0.0.1:5000/api/getdata/40.406635,56.129057">http://127.0.0.1:5000/api/getdata/40.406635,56.129057</a></p>

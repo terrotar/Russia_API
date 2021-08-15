@@ -2,3 +2,8 @@
 body {
     background-color: rgba(0, 110, 255, 0.438);
 }
+
+h1 {
+    color: rgba(245, 245, 245, 0.767);
+    font-weight: bold;
+}
