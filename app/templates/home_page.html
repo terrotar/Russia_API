@@ -27,21 +27,22 @@
         <form action="{{ url_for('site.distance') }}", method="POST">
   
           <div class="form-group col-6 float-left">
-            <p><strong><u>Calculate distance:</u></strong></p>
+            <p><strong><u>Calculate distance</u>: </strong></p>
             <p><strong><u>Obs</u>: </strong>To do so, enter a <strong>valid coordinate(longitude, latitude)</strong> that is
               <strong><u>NOT INSIDE MKAD</u></strong>.</p>
-               <p>Example:
+               <p>Examples:
                <br>
-               <strong><u>Longitude:</u></strong> 40.406635</p>
-               <strong><u>Latitude:</u></strong> 56.129057</p>
+               <strong><u>Longitude</u>: </strong> 40.406635</p>
+               <strong><u>Latitude</u>: </strong> 56.129057</p>
 
                <br>
+               <br>
             
-            <label for="longitude" class="form-label"><strong><u>Longitude:</u></strong></label>
+            <label for="longitude" class="form-label"><strong><u>Longitude</u>: </strong></label>
             <input type="float" name="longitude" class="form-control" id="longitude">
             <br>
 
-            <label for="latitude" class="form-label"><strong><u>Latitude:</u></strong></label>
+            <label for="latitude" class="form-label"><strong><u>Latitude</u>: </strong></label>
             <input type="float" name="latitude" class="form-control" id="latitude">
 
 
@@ -50,19 +51,30 @@
         </form><!-- form - calculate distance -->
     
     
-        <form action="#", method="GET">
+        <form action="{{ url_for('site.getdata_city') }}", method="POST">
     
             <div class="form-group col-6 float-right">
-              <label for="address" class="form-label"><strong><u>Search</u> <u>Adress</u>:</strong></label>
-              <br>
+              <p><strong><u>Search Address</u>: </strong></p>
               <p><strong><u>Obs</u>: </strong>To do so, enter a <strong>valid coordinate(longitude, latitude)</strong>
                 or the <strong>name of street, city.</strong></p>
                 <p>Examples:
                   <br>
-                <strong><u>40.406635,56.129057</u></strong> or <strong><u>vladimir</u></strong></p>
-                
-              <input type="text" name="address" class="form-control" id="address">
+                  <strong><u>Longitude</u>: </strong> 40.406635</p>
+                  <strong><u>Latitude</u>: </strong> 56.129057</p>
+                <p><strong><u>City or Address</u>: </strong> vladimir</p>
+                <br>
               
+              <label for="longitude" class="form-label"><strong><u>Longitude</u>: </strong></label>
+              <input type="float" name="longitude" class="form-control" id="longitude">
+              <br>
+  
+              <label for="latitude" class="form-label"><strong><u>Latitude</u>: </strong></label>
+              <input type="float" name="latitude" class="form-control" id="latitude">
+              <br>
+
+              <label for="city" class="form-label"><strong><u>City or Street</u>: </strong></label>
+              <input type="text" name="city" class="form-control" id="city">
+
               <button type="submit" class="btn btn-outline-light btn-md bg-danger"><strong>Search</strong></button>
             </div><!-- form-group -->
           </form><!-- form - search address -->
