@@ -19,23 +19,36 @@
     <br>
 
 
+    {% if value_error %}
+    <br>
+    <h4><strong>The coordinate is inside the MKAD.</strong></h4>
+    <br>
+    {% endif %}
+
     <div class="container">
 
       <div class="row d-inline-block">
 
-        <form action="#", method="GET">
+        <form action="#", method="POST">
   
           <div class="form-group col-6 float-left">
-            <label for="address" class="form-label"><strong><u>Calculate</u> <u>Distance</u>:</strong></label>
-            <br>
+            <p><strong><u>Calculate distance:</u></strong></p>
             <p><strong><u>Obs</u>: </strong>To do so, enter a <strong>valid coordinate(longitude, latitude)</strong> that is
               <strong><u>NOT INSIDE MKAD</u></strong>.</p>
                <p>Example:
                <br>
                <strong><u>40.406635,56.129057</u></strong></p>
+
+               <br>
             
-            <input type="text" name="address" class="form-control" id="address">
-            
+            <label for="lng" class="form-label"><strong><u>Longitude:</u></strong></label>
+            <input type="text" name="lng" class="form-control" id="lng">
+            <br>
+
+            <label for="lat" class="form-label"><strong><u>Latitude:</u></strong></label>
+            <input type="text" name="lat" class="form-control" id="lat">
+
+
             <button type="submit" class="btn btn-outline-light btn-md bg-info"><strong>Calculate</strong></button>
           </div><!-- form-group -->
         </form><!-- form - calculate distance -->
@@ -62,6 +75,17 @@
 
     </div><!-- container -->
     
+
+
+        <br>
+        <br>
+        <h1>Results</h1>
+        <hr>
+        {% if kilometers and miles %}
+          <p><strong>Address:</strong> {{ address }}</p>
+          <p><strong>Distance in kilometers:</strong> {{ km }}</p>
+          <p><strong>Distance in miles:</strong> {{ miles }}</p>
+        {% endif %}
 
 
         <br>
