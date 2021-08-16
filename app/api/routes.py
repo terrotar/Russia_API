@@ -26,7 +26,7 @@ def distance(lng, lat):
             address = (lng, lat)
             dist = round(hs.haversine(moscow, address), 1)
             if(dist <= 12.9):
-                return {'ValueError': 'Distance inside MKAD.'}
+                return abort(400, {'ValueError': 'Distance inside MKAD.'})
             else:
                 dist = round(dist - 12.9, 1)
                 miles = round(hs.haversine(
@@ -46,6 +46,9 @@ def getdata(address):
     if(request.method == 'GET'):
         data = requests.get(
             f"https://geocode-maps.yandex.ru/1.x/?apikey=085b7527-0c65-43e9-b0e7-86b52fb93ffe&geocode={address}&format=json&lang=en-US&results=1")
+        # Here I selected the number of results founds when a search is done but has no results founds.
+        # To achieve it, I made a navigation inside the JSON response of the API to found the parameter "found"
+        # and raise and Exception 400 when it's equal to 0.
         points = data.json()["response"]["GeoObjectCollection"]["metaDataProperty"]["GeocoderResponseMetaData"]["found"]
         for point in points:
             if(point == "0" or point == 0):
