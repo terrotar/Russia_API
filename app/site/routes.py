@@ -45,7 +45,7 @@ def distance():
 # of the Blueprint API /api/getdata but a little more friendly to understand
 # how does it work.
 
-# Here it's important to notice that was divided the search addres in 2 parts:
+# Here it's important to notice that was divided the search address in 2 parts:
 # One searching by the city or street name
 # Another searching by the coordinates longitude and latitude
 
@@ -57,4 +57,16 @@ def getdata_city():
         if(address):
             data = requests.get(
                 f"https://geocode-maps.yandex.ru/1.x/?apikey=085b7527-0c65-43e9-b0e7-86b52fb93ffe&geocode={address}&format=json&lang=en-US&results=1")
+        return data.json()
+
+
+# Route that search by longitude and latitude
+@site.route("/getdata/coordinate", methods=["POST"])
+def getdata_coordinate():
+    if(request.method == 'POST'):
+        lng = request.form["longitude"]
+        lat = request.form["latitude"]
+        address = (float(lng), float(lat))
+        data = requests.get(
+            f"https://geocode-maps.yandex.ru/1.x/?apikey=085b7527-0c65-43e9-b0e7-86b52fb93ffe&geocode={address}&format=json&lang=en-US&results=1")
         return data.json()

@@ -51,7 +51,7 @@
         </form><!-- form - calculate distance -->
     
     
-        <form action="{{ url_for('site.getdata_city') }}", method="POST">
+        <form action="{{ url_for('site.getdata_coordinate') }}", method="POST">
     
             <div class="form-group col-6 float-right">
               <p><strong><u>Search Address</u>: </strong></p>
@@ -70,14 +70,20 @@
   
               <label for="latitude" class="form-label"><strong><u>Latitude</u>: </strong></label>
               <input type="float" name="latitude" class="form-control" id="latitude">
-              <br>
 
+              <button type="submit" class="btn btn-outline-light btn-md bg-danger"><strong>Search by Coordinate</strong></button>
+            </form><!-- form - search address by coordinate -->
+
+
+              <br>
+              <br>
+              <form action="{{ url_for('site.getdata_city') }}", method="POST">
               <label for="city" class="form-label"><strong><u>City or Street</u>: </strong></label>
               <input type="text" name="city" class="form-control" id="city">
 
-              <button type="submit" class="btn btn-outline-light btn-md bg-danger"><strong>Search</strong></button>
+              <button type="submit" class="btn btn-outline-light btn-md bg-danger"><strong>Search by name</strong></button>
             </div><!-- form-group -->
-          </form><!-- form - search address -->
+          </form><!-- form - search address by name -->
           
       </div><!-- class row -->
 
@@ -119,7 +125,7 @@
             <button type="submit" class="btn btn-outline-light btn-sm bg-info" disabled><strong>Blue button</strong></button>
             <br>
             <br>
-            <p>Calculate the distance in kilometers and miles from the coordinate, first longitude then latitude, for example:</p>
+            <p>Calculate the distance in kilometers and miles between MKAD and the coordinate, first longitude then latitude, for example:</p>
        
             <a href="http://127.0.0.1:5000/api/distance/40.406635/56.129057">http://127.0.0.1:5000/api/distance/40.406635/56.129057</a></p>
             
@@ -138,5 +144,7 @@
               <a href="http://127.0.0.1:5000/api/getdata/40.406635,56.129057">http://127.0.0.1:5000/api/getdata/40.406635,56.129057</a></p>
               <a href="http://127.0.0.1:5000/api/getdata/vladimir">http://127.0.0.1:5000/api/getdata/vladimir</a></p>
           </li>
+          <br>
+          <li>More examples in <a href="https://yandex.com/dev/maps/geocoder/doc/desc/examples/geocoder_examples.html">https://yandex.com/dev/maps/geocoder/doc/desc/examples/geocoder_examples.html</a></li>
         </ul>
 {% endblock %}
