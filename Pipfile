@@ -8,6 +8,7 @@ flask = "*"
 python-dotenv = "*"
 requests = "*"
 haversine = "*"
+pytest = "*"
 
 [dev-packages]
 

@@ -1,10 +1,12 @@
 from flask import Blueprint, render_template, request
 import requests
 
+# Library to calculate distance between two coordinates
 import haversine as hs
 from haversine import Unit
 
 
+# instance of Blueprint site
 site = Blueprint('site', __name__)
 
 
@@ -23,6 +25,11 @@ def distance():
     if(request.method == 'POST'):
         lng = request.form["longitude"]
         lat = request.form["latitude"]
+        # As said im README.md, the parameter used to calculated inside MKAD
+        # was the distance between Moscow(center of the radius) and MKAD(edge of radius),
+        # which is equal 12.9 kms or 8 miles.
+        # So, it calculate the distance between Moscow and the address gave by the user less
+        # 12.9 kms or 8 miles.
         moscow = (37.622513, 55.75322)
         address = (float(lng), float(lat))
         dist = round(hs.haversine(moscow, address), 1)
