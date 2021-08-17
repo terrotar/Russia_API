@@ -1,9 +1,12 @@
-from flask import abort, Blueprint, jsonify, request
+from flask import abort, Blueprint, request
 import requests
 
 # Library to calculate distance between two coordinates
 import haversine as hs
 from haversine import Unit
+
+# Library to generate log file
+from loguru import logger
 
 
 # instance of Blueprint api with a url_prefix
@@ -31,10 +34,13 @@ def distance(lng, lat):
                 dist = round(dist - 12.9, 1)
                 miles = round(hs.haversine(
                     moscow, address, unit=Unit.MILES), 1) - 8
-                return {'distance': {
-                    'Kilometers': dist,
-                    'Miles': miles}
-                }
+                json = {"Address": {"Coordinates": {"Longitude": f"{lng}",
+                                                    "latitude": f"{lat}"}
+                                    },
+                        "Distances": {"Kilometers": f"{dist}",
+                                      "Miles": f"{miles}"}}
+                logger.success(f"{json}")
+                return json
         else:
             abort(400, "The coordinates in URL are invalid.")
 
@@ -54,4 +60,5 @@ def getdata(address):
             if(point == "0" or point == 0):
                 return abort(400, "The coordinates or name in URL are invalid.")
             else:
+                logger.success({"Address": f"{address}"})
                 return data.json()

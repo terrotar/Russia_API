@@ -5,6 +5,9 @@ import requests
 import haversine as hs
 from haversine import Unit
 
+# Library to generate log file
+from loguru import logger
+
 
 # instance of Blueprint site
 site = Blueprint('site', __name__)
@@ -43,6 +46,12 @@ def distance():
                 km = round(dist - 12.9, 1)
                 miles = round(hs.haversine(
                     moscow, address, unit=Unit.MILES), 1) - 8
+                json = {"Address": {"Coordinates": {"Longitude": f"{lng}",
+                                                    "latitude": f"{lat}"}
+                                    },
+                        "Distances": {"Kilometers": f"{km}",
+                                      "Miles": f"{miles}"}}
+                logger.success(f"{json}")
                 return render_template('home_page.html',
                                        address=address,
                                        kilometers=km,
@@ -60,7 +69,7 @@ def distance():
 # Another searching by the coordinates longitude and latitude
 
 # Route that search by city or steet
-@site.route("/getdata/city", methods=["POST"])
+@ site.route("/getdata/city", methods=["POST"])
 def getdata_city():
     if(request.method == 'POST'):
         address = request.form["city"]
@@ -76,13 +85,14 @@ def getdata_city():
                 if(point == "0" or point == 0):
                     return abort(400, "The coordinates or name in URL are invalid.")
                 else:
+                    logger.success({"Address": f"{address}"})
                     return data.json()
         else:
             return abort(400, "The coordinates or name in URL are invalid.")
 
 
 # Route that search by longitude and latitude
-@site.route("/getdata/coordinate", methods=["POST"])
+@ site.route("/getdata/coordinate", methods=["POST"])
 def getdata_coordinate():
     if(request.method == 'POST'):
         lng = request.form["longitude"]
@@ -102,4 +112,5 @@ def getdata_coordinate():
                 if(point == "0" or point == 0):
                     return abort(400, "The coordinates or name in URL are invalid.")
                 else:
+                    logger.success({"Coordinate": f"{address}"})
                     return data.json()
