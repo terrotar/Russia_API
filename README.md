@@ -35,6 +35,8 @@ After that, connect to your localhost in your web browser. There you will have t
 
 *** About the project ***
 
+It's in the format of Blueprints, something that I confess I didn't use too much as I should and after that experience in my futures projects I will thing about it. Spent a little time to study the concept again but it is extremelly awsome the way it works. It makes your code fluid naturally, more simple to read and understand, cleaner and let you more awarness about your code behaviour. Also, I tried to comment a lot during the code, to make the reader understand a little better what was my logic developing it.
+
 If the specified address is located inside the MKAD, the distance won't be calculated.To calculate that distance was used the
 library haversine found in Pipfile. Basically, haversine will calculate the distance between 2 coordinates points and returns it with the parameter you desire, such as miles, kms, meters. The result of MKAD's location less Moscow's location was 12.9 kms rounded, so from Moscow
 until 12.9 kms(MKAD) the program won't calculate due to consider it's a range inside MKAD - the location of MKAD and Moscow was used by the API when searching a coordinate by it's name in the follow link as example: https://yandex.com/dev/maps/geocoder/doc/desc/examples/geocoder_examples.html.
