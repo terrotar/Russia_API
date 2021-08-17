@@ -4,6 +4,7 @@ import requests
 
 # Tests of route /api/getdata/<address>
 
+
 # Test of a success request and response of the route
 def test_getdata_correct_string():
     response = requests.get("http://127.0.0.1:5000/api/getdata/moscow")

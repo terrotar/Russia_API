@@ -9,6 +9,7 @@ python-dotenv = "*"
 requests = "*"
 haversine = "*"
 pytest = "*"
+loguru = "*"
 
 [dev-packages]
 
