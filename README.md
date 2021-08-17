@@ -56,6 +56,6 @@ I think that Test Task was with high difficulty, I got kind a lost in the beginn
 
 In front-end was used some basic HTML and CSS with Bootstrap to get a little more "friendly face" to users. I don't have so much knowledge of
 that area but I definitely could get it a little better, like insert a navbar with some guides, like 'Contact', or things like that but the
-deadline of 1 week didn't allow me to do it. The color palette was decided to be the colors of Russia's flag, a homage to cheers the description and heart of that Test Task, a real challenging project like the winter of Russia, but it was awsome to do and what I've learned from it's immeasurable like Russia's size. Jokes a part, thanks for the opportunity to do that test and the wisdom that came with it, it certainly make my future projects better!
+deadline of 1 week didn't allow me to do it. The color palette was decided to be the colors of Russia's flag, a homage to cheers the description and heart of that Test Task, a real challenging project like the winter of Russia, but it was awsome to do and what I've learned from it's immeasurable like Russia's size. Jokes a part, that was the most difficulty test until know and the only I could deliver with all the requirements, thanks for the opportunity to do that test and the wisdom that came with it, it certainly make my future projects better!
 
 Hope that anyone who sees this project can achieve what they are searching for! =]
