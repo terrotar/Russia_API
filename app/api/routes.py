@@ -29,6 +29,7 @@ def distance(lng, lat):
             address = (lng, lat)
             dist = round(hs.haversine(moscow, address), 1)
             if(dist <= 12.9):
+                logger.error({'ValueError': 'Distance inside MKAD.'})
                 return abort(400, {'ValueError': 'Distance inside MKAD.'})
             else:
                 dist = round(dist - 12.9, 1)
@@ -42,6 +43,7 @@ def distance(lng, lat):
                 logger.success(f"{json}")
                 return json
         else:
+            logger.error({'ValueError': 'Distance inside MKAD.'})
             abort(400, "The coordinates in URL are invalid.")
 
 
@@ -58,7 +60,8 @@ def getdata(address):
         points = data.json()["response"]["GeoObjectCollection"]["metaDataProperty"]["GeocoderResponseMetaData"]["found"]
         for point in points:
             if(point == "0" or point == 0):
-                return abort(400, "The coordinates or name in URL are invalid.")
+                logger.error({"ValueError": "name or coordinates in URL are invalid"})
+                return abort(400, {"ValueError": "name or coordinates in URL are invalid"})
             else:
                 logger.success({"Address": f"{address}"})
                 return data.json()

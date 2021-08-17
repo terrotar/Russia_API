@@ -52,8 +52,7 @@ There are some tests using pytest founded inside the directory tests. There are 
 to both Blueprints, API(test_api.py) and site(test_site.py). I had used pytest once before but it was a tutorial and just followed the instructions. I found very efficient it and very easy to use. You just have to open a terminal and go inside that directory(/tests) and type: pytest test_api.py
       or
       pytest test_site.py
-
-
+And don't forget to open another terminal with the application running, otherwise all tests will fail because they won't be able to connect with the URL's.
 
 I think that Test Task was with high difficulty, I got kind a lost in the beginning because the whole idea of the project, using MKAD as reference, the API of yandex(I didn't know it exists, I only knew about Google and never head of it and got really impressive and started using it), token key to acess the API(I've never done it before) and deal with features I don't know well, like log files and unit tests were definitely barriers to develop it inside 1 week. To get even better, I got sick in the beggining of that week and didn't logged in computer, so I used those days to study how I would achieve the deadline and what was psosible with my skills and what would be a plus feature.I feel very happy that I could complete it in it's whole, even with some bonus, like the options to use the API as it was a form, to users get a way more familiar to understand how does an API work, something that was kind a misterious thing to me.
 
