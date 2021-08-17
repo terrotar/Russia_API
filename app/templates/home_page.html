@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+    <title>MKAD API - Home Page</title>
+{% endblock %}
+
+{% block body %}
+    <br>
+    <h1>Welcome to MKAD API</h1>
+    <hr>
+
+
+    <br>
+    <h4>Type an address to calculate the distance between <strong><u>Moscow Ring Road</u></strong> and the specified address.</h4>
+    <br>
+    <h4>If the address is inside <strong><u>MKAD</u></strong> it won't be calculated.</h4>
+    <br>
+    <br>
+
+
+
+    <div class="container">
+
+      <div class="row d-inline-block">
+
+        <form action="{{ url_for('site.distance') }}", method="POST">
+  
+          <div class="form-group col-6 float-left">
+            <p><strong><u>Calculate distance</u>: </strong></p>
+            <p><strong><u>Obs</u>: </strong>To do so, enter a <strong>valid coordinate(longitude, latitude)</strong> that is
+              <strong><u>NOT INSIDE MKAD</u></strong>.</p>
+               <p>Examples:
+               <br>
+               <strong><u>Longitude</u>: </strong> 40.406635</p>
+               <strong><u>Latitude</u>: </strong> 56.129057</p>
+
+               <br>
+               <br>
+            
+            <label for="longitude" class="form-label"><strong><u>Longitude</u>: </strong></label>
+            <input type="float" name="longitude" class="form-control" id="longitude">
+            <br>
+
+            <label for="latitude" class="form-label"><strong><u>Latitude</u>: </strong></label>
+            <input type="float" name="latitude" class="form-control" id="latitude">
+
+
+            <button type="submit" class="btn btn-outline-light btn-md bg-info"><strong>Calculate</strong></button>
+          </div><!-- form-group -->
+        </form><!-- form - calculate distance -->
+    
+    
+        <form action="{{ url_for('site.getdata_coordinate') }}", method="POST">
+    
+            <div class="form-group col-6 float-right">
+              <p><strong><u>Search Address</u>: </strong></p>
+              <p><strong><u>Obs</u>: </strong>To do so, enter a <strong>valid coordinate(longitude, latitude)</strong>
+                or the <strong>name of street, city.</strong></p>
+                <p>Examples:
+                  <br>
+                  <strong><u>Longitude</u>: </strong> 40.406635</p>
+                  <strong><u>Latitude</u>: </strong> 56.129057</p>
+                <p><strong><u>City or Address</u>: </strong> vladimir</p>
+                <br>
+              
+              <label for="longitude" class="form-label"><strong><u>Longitude</u>: </strong></label>
+              <input type="float" name="longitude" class="form-control" id="longitude">
+              <br>
+  
+              <label for="latitude" class="form-label"><strong><u>Latitude</u>: </strong></label>
+              <input type="float" name="latitude" class="form-control" id="latitude">
+
+              <button type="submit" class="btn btn-outline-light btn-md bg-danger"><strong>Search by Coordinate</strong></button>
+            </form><!-- form - search address by coordinate -->
+
+
+              <br>
+              <br>
+              <form action="{{ url_for('site.getdata_city') }}", method="POST">
+              <label for="city" class="form-label"><strong><u>City or Street</u>: </strong></label>
+              <input type="text" name="city" class="form-control" id="city">
+
+              <button type="submit" class="btn btn-outline-light btn-md bg-danger"><strong>Search by name</strong></button>
+            </div><!-- form-group -->
+          </form><!-- form - search address by name -->
+          
+      </div><!-- class row -->
+
+    </div><!-- container -->
+    
+
+
+        <br>
+        <br>
+        <h1>Results</h1>
+        <hr>
+
+
+        {% if value_error %}
+        <br>
+        <h4><strong>The coordinate is inside the MKAD.</strong></h4>
+        <br>
+        {% endif %}
+
+
+        {% if kilometers and miles %}
+          <p><strong>Address Coordinate:</strong> {{ address }}</p>
+          <p><strong>Distance in kilometers:</strong> {{ kilometers }}</p>
+          <p><strong>Distance in miles:</strong> {{ miles }}</p>
+        {% endif %}
+
+
+        <br>
+        <br>
+        <br>
+        <h1>How to use the API</h1>
+        <hr>
+
+        <h4>There are <strong>two routes</strong> and <strong>two buttons</strong> you can use:</h4>
+        <br>
+        <ul>
+          <li>
+            <h4><strong>/api/distance/lng/lat</strong></h4>
+            <button type="submit" class="btn btn-outline-light btn-sm bg-info" disabled><strong>Blue button</strong></button>
+            <br>
+            <br>
+            <p>Calculate the distance in kilometers and miles between MKAD and the coordinate, first longitude then latitude, for example:</p>
+       
+            <a href="http://127.0.0.1:5000/api/distance/40.406635/56.129057">http://127.0.0.1:5000/api/distance/40.406635/56.129057</a></p>
+            
+          </li>
+          <br>
+          <br>
+          <li>
+            <h4><strong>/api/getdata/city_name_or_coordinate</strong></h4>
+            <button type="submit" class="btn btn-outline-light btn-sm bg-danger" disabled><strong>Red button</strong></button>
+            <br>
+            <br>
+            <p>Give some data and coordinates in case you don't know to calculate via API.</p>
+            <p>Insert coordinates and names as the examples above:
+              <br>
+              <br>
+              <a href="http://127.0.0.1:5000/api/getdata/40.406635,56.129057">http://127.0.0.1:5000/api/getdata/40.406635,56.129057</a></p>
+              <a href="http://127.0.0.1:5000/api/getdata/vladimir">http://127.0.0.1:5000/api/getdata/vladimir</a></p>
+          </li>
+          <br>
+          <li>More examples in <a href="https://yandex.com/dev/maps/geocoder/doc/desc/examples/geocoder_examples.html">https://yandex.com/dev/maps/geocoder/doc/desc/examples/geocoder_examples.html</a></li>
+        </ul>
+{% endblock %}
